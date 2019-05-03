@@ -1,25 +1,35 @@
 import time
+import random
+import json
 
 from webdriver_wrapper import WebDriverWrapper
 
 
-def lambda_handler(*args, **kwargs):
+def lambda_handler(event, context):
     driver = WebDriverWrapper()
 
-    driver.get_url('https://www.google.es/')
+    driver.get_url('http://35.236.100.236:8080')
 
-    driver.set_input_value('//input[@id="lst-ib"]', '21 buttons')
+    number = int(random.random()*100)%4
 
-    driver.click('//center//img[@alt="Google"]')
-    time.sleep(0.5)
-
-    driver.click('//input[@name="btnK"]')
-    time.sleep(0.5)
-
-    first_google_result_title = driver.get_inner_html('(//div[@class="rc"]//a)[1]')
+    if number == 0:
+        driver.click("//span[@data-customer='123']")
+    elif number == 1:
+        driver.click("//span[@data-customer='392']")
+    elif number == 2:
+        driver.click("//span[@data-customer='731']")
+    else:
+        driver.click("//span[@data-customer='567']")
 
     print("--------------------------")
-    print(first_google_result_title)
+    print("Success")
     print("--------------------------")
+
+    time.sleep(1)
 
     driver.close()
+
+    return { 
+        'statusCode': 200,
+        'body': json.dumps({'message': 'Success - Clicked HotRod link'+' '+str(number)})
+    }

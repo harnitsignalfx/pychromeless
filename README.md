@@ -13,21 +13,6 @@ All the process is explained [here](https://engineering.21buttons.com/crawling-t
 * [Chrome driver](https://sites.google.com/a/chromium.org/chromedriver/)
 * [Small chromium binary](https://github.com/adieuadieu/serverless-chrome/releases)
 
-## Requirements
-
-Install docker and dependencies:
-
-* `make fetch-dependencies`
-* [Installing Docker](https://docs.docker.com/engine/installation/#get-started)
-* [Installing Docker compose](https://docs.docker.com/compose/install/#install-compose)
-
-## Working locally
-
-To make local development easy, you can use the included docker-compose. 
-Have a look at the example in `lambda_function.py`: it looks up “21 buttons” on Google and prints the first result. 
-
-Run it with: `make docker-run`
-
 ## Building and uploading the distributable package
 
 Everything is summarized into a simple Makefile so use:
@@ -42,7 +27,6 @@ Everything is summarized into a simple Makefile so use:
     * Memory: + 250MB 
 
 ## Shouts to
-* [Docker lambda](https://github.com/lambci/docker-lambda)
 * [Lambdium](https://github.com/smithclay/lambdium)
 * [Serverless Chrome repo](https://github.com/adieuadieu/serverless-chrome) & [medium post](https://medium.com/@marco.luethy/running-headless-chrome-on-aws-lambda-fa82ad33a9eb)
 * [Chromeless](https://github.com/graphcool/chromeless)

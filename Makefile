@@ -27,6 +27,7 @@ build-lambda-package: clean fetch-dependencies
 	cp -r src build/.
 	cp -r bin build/.
 	cp -r lib build/.
+	pip install chromedriver_installer --install-option="--chromedriver-version=2.10" -t build/lib/.
 	pip install -r requirements.txt -t build/lib/.
 	cd build; zip -9qr build.zip .
 	cp build/build.zip .
